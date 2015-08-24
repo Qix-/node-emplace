@@ -17,7 +17,7 @@ console.log(obj.bar); //-> hello
 
 # API
 
-### `.clear(obj)`
+#### `.clear(obj)`
 Clears an object's properties in-place.
 
 ```javascript
@@ -28,7 +28,7 @@ emplace.clear(obj);
 console.log('foo' in obj); //-> false
 ```
 
-### `.append(obj, otherObj)`
+#### `.append(obj, otherObj)`
 Either appends an array, or merges two objects (overwriting duplicate keys).
 
 ```javascript
@@ -41,10 +41,10 @@ console.log(obj.foo); //-> 1234
 console.log(obj.bar); //-> 'hello'
 ```
 
-### `.replace(obj, otherObj)`
+#### `.replace(obj, otherObj)`
 First `.clear`s the object, then `.append`s to it.
 
-See [example](#Example).
+See [example](#example).
 
 ## License
 Licensed under the [MIT License](http://opensource.org/licenses/MIT).
