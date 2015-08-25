@@ -1,5 +1,6 @@
 'use strict';
 
+var isArrayish = require('is-arrayish');
 var emplace = module.exports = {};
 
 function clearArray(array) {
@@ -22,7 +23,7 @@ function clearObject(object) {
 }
 
 emplace.clear = function clear(object) {
-	var clearFn = Array.isArray(object) ? clearArray : clearObject;
+	var clearFn = isArrayish(object) ? clearArray : clearObject;
 	return clearFn(object);
 };
 
@@ -42,11 +43,19 @@ function appendObject(original, newObject) {
 }
 
 emplace.append = function append(original, newObject) {
-	var appendFn = Array.isArray(original) ? appendArray : appendObject;
+	var appendFn = isArrayish(original) ? appendArray : appendObject;
 	return appendFn(original, newObject);
 };
 
 emplace.replace = function replace(original, newObject) {
+	var originalArray = isArrayish(original);
+	var newArray = isArrayish(newObject);
+
 	emplace.clear(original);
+
+	if (newArray && newArray !== originalArray) {
+		Object.setPrototypeOf(original, []);
+	}
+
 	return emplace.append(original, newObject);
 };

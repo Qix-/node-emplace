@@ -45,3 +45,14 @@ it 'should replace objects in-place', ->
 
   arr.length.should.equal 5
   arr.should.deepEqual [9, 8, 7, 6, 5]
+
+it 'should replace an object with an array', ->
+  obj = foo: 1234
+  arr = [1, 2, 3, 4, 5]
+
+  emplace.replace obj, arr
+
+  obj.length.should.equal 5
+  obj[0].should.equal 1
+  obj[4].should.equal 5
+  obj.slice().should.deepEqual [1, 2, 3, 4, 5]

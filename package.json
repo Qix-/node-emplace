@@ -4,14 +4,14 @@
   "version": "0.1.1",
   "author": "Qix (http://github.com/qix-)",
   "keywords": [
-    "emplace",
-    "replace",
-    "in place",
-    "pointer",
-    "overwrite",
+    "array",
     "clear",
+    "emplace",
+    "in place",
     "object",
-    "array"
+    "overwrite",
+    "pointer",
+    "replace"
   ],
   "license": "MIT",
   "scripts": {
@@ -29,5 +29,8 @@
     "mocha": "^2.2.5",
     "should": "^7.0.1",
     "xo": "^0.6.1"
+  },
+  "dependencies": {
+    "is-arrayish": "^0.1.1"
   }
 }
