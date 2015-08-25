@@ -1,5 +1,6 @@
 'use strict';
 
+var setPrototypeOf = require('setprototypeof');
 var isArrayish = require('is-arrayish');
 var emplace = module.exports = {};
 
@@ -54,7 +55,7 @@ emplace.replace = function replace(original, newObject) {
 	emplace.clear(original);
 
 	if (newArray && newArray !== originalArray) {
-		Object.setPrototypeOf(original, []);
+		setPrototypeOf(original, []);
 	}
 
 	return emplace.append(original, newObject);
