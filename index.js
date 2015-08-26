@@ -14,9 +14,7 @@ function clearObject(object) {
 	for (var k in object) {
 		if (object.hasOwnProperty(k)) {
 			// http://jsperf.com/try-delete-catch-vs-getownpropertydescriptor-check
-			try {
-				delete object[k];
-			} catch (e) {}
+			delete object[k];
 		}
 	}
 
