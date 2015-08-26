@@ -11,11 +11,10 @@ function clearArray(array) {
 }
 
 function clearObject(object) {
-	for (var k in object) {
-		if (object.hasOwnProperty(k)) {
-			// http://jsperf.com/try-delete-catch-vs-getownpropertydescriptor-check
-			delete object[k];
-		}
+	var keys = Object.getOwnPropertyNames(object);
+	for (var i = 0, len = keys.length; i < len; i++) {
+		// http://jsperf.com/try-delete-catch-vs-getownpropertydescriptor-check
+		delete object[keys[i]];
 	}
 
 	return object;

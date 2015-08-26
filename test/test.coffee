@@ -56,3 +56,17 @@ it 'should replace an object with an array', ->
   obj[0].should.equal 1
   obj[4].should.equal 5
   obj.slice().should.deepEqual [1, 2, 3, 4, 5]
+
+it 'should throw upon clearing un-configurable', ->
+  obj = {}
+  Object.defineProperty obj, 'foo', value: 1234
+  (->
+    emplace.clear obj
+  ).should.throw 'Cannot delete property \'foo\' of #<Object>'
+
+it 'should delete non-enumerable property', ->
+  obj = {}
+  Object.defineProperty obj, 'foo', {value: 1234, configurable: true}
+  emplace.clear obj
+  (should obj.foo).not.be.ok()
+  obj.should.not.have.property 'foo'
