@@ -1,7 +1,7 @@
 {
   "name": "emplace",
   "description": "Emplace objects and arrays - pointer to pointer style!",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "author": "Qix (http://github.com/qix-)",
   "keywords": [
     "array",
